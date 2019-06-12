@@ -5,19 +5,15 @@ export default {
     show: {
       type: Boolean,
       default: false
-    },
-    message: {
-      type: String,
-      required: true
     }
   },
   render (createElement) {
     return  (this.show) ? createElement('div', {
       class: 'modal',
     }, [
-      createElement('p', {
-        class: 'message',
-      }, this.message ),
+      createElement('div', {
+        class: 'content',
+      }, this.$slots.default  ),
       createElement('button', {
         class: 'btn',
         on : {
