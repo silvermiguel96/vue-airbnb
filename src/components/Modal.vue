@@ -38,7 +38,6 @@ methods: {
   margin-right: -50%;
   transform: translate(-50%, -50%);
   z-index: 2000;
-  @apply absolute bg-white p-4 shadow-lg rounded;
 }
  .modal > .modal-head {
   @apply relative;
