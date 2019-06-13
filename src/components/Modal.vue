@@ -12,7 +12,7 @@ export default {
     return (this.show) ? <div class="modal-wrapper">
       <div class="modal">
         <div class="modal-head text-right pb-2">
-          <a href="#" onClick="{this.onClose}">
+          <a href="#" onClick={this.onClose}>
             <i class="material-icons modal-close-icon">close</i>
           </a>
         </div>
@@ -28,7 +28,6 @@ methods: {
   }
 }
 };
-</script>
 </script>
 
 <style scoped>
