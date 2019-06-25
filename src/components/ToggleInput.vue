@@ -37,8 +37,8 @@ export default {
 }
 .toggle:focus {
   outline: 0;
-  -webkit-box-shadow: 0004pxrgba (52, 144, 220, 0.5);
-  box-shadow: 0004pxrgba (52, 144, 220, 0.5);
+  -webkit-box-shadow: 0004pxrgba(52, 144, 220, 0.5);
+  box-shadow: 0004pxrgba(52, 144, 220, 0.5);
 }
 .toggle:before {
   display: inline-block;
@@ -47,8 +47,8 @@ export default {
   width: 100%;
   background-color: #dae1e7;
   content: "";
-  -webkit-box-shadow: inset 02px4pxrgba (0, 0, 0, 0.1);
-  box-shadow: inset 02px4pxrgba (0, 0, 0, 0.1);
+  -webkit-box-shadow: inset 02px4pxrgba(0, 0, 0, 0.1);
+  box-shadow: inset 02px4pxrgba(0, 0, 0, 0.1);
   -webkit-transition: background-color 0.2s ease;
   transition: background-color 0.2s ease;
 }
@@ -65,8 +65,8 @@ export default {
   background-color: #fff;
   border-width: 1px;
   border-color: #dae1e7;
-  -webkit-box-shadow: 02px4px0rgba (0, 0, 0, 0.1);
-  box-shadow: 02px4px0rgba (0, 0, 0, 0.1);
+  -webkit-box-shadow: 02px4px0rgba(0, 0, 0, 0.1);
+  box-shadow: 02px4px0rgba(0, 0, 0, 0.1);
   content: "";
   -webkit-transition: -webkit-transform 0.2s ease;
   transition: -webkit-transform 0.2s ease;
