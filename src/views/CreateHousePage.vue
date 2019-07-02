@@ -16,18 +16,18 @@
         <form>
           <div class="mb-4">
             <label class="input__label">Title</label>
-            <input type="text" class="input__field" placeholder="Bruce Wayne" />
+            <input v-model="publication.title" type="text" class="input__field" placeholder="Bruce Wayne" />
           </div>
           <div class="mb-4">
             <label class="input__label">Description</label>
-            <textarea type="text" rows="10" class="input__field" placeholder="Bruce Wayne" />
+            <textarea v-model="publication.description" type="text" rows="10" class="input__field" placeholder="Bruce Wayne" />
           </div>
           <div class="mb-4">
             <label class="input__label">Featured Image</label>
-            <textarea type="text" rows="10" class="input__field" placeholder="Bruce Wayne" />
+            <textarea  v-model="publication.featuredImage" type="text" rows="10" class="input__field" placeholder="Bruce Wayne" />
           </div>
           <div class="mb-4 text-right">
-            <button
+            <button @click.prevent="save"
               class="w-full bg-yellow-dark text-yellow-darker font-semibold py-3 px-6 rounded"
             ></button>
           </div>
@@ -41,6 +41,27 @@
 import PageLayout from "@/layouts/PageLayout.vue";
 export default {
   name: "CreateHousePage",
+  data() {
+    return {
+      publication: {
+      title: '',
+      description: '',
+      featuredImage: ''
+      },
+    };
+  },
+  methods: { 
+    save() {
+      const { title, description, featuredImage } = this.publication;
+      const room = {
+        title,
+        description,
+        featuredImage: featuredImage,
+        publishedAt: Date.now(),
+      }
+      this.$store.dispatch('CREATE_ROOM', room);
+    }
+  },
   components: {
     PageLayout
   }
