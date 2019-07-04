@@ -63,8 +63,8 @@ export default {
   },
   components: {
     DefaultLayout,
-    TinySlider
-  }
+    TinySlider,
+  },
 };
 </script>
 

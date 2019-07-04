@@ -37,11 +37,19 @@ export default new Vuex.Store({
     },
     CREATE_ROOM: ({ state, commit }, room) => {
       const newRoom = room;
-      const roomId = `room${Math.random()}`;
-      newRoom['.key'] = roomId;
+      const roomId = firebase.database().ref('rooms').push().key;
       newRoom.userId = state.authId;
-      commit('SET_ROOM', { newRoom, roomId });
-      commit('APPEND_ROOM_TO_USE', { roomId, userId: newRoom.userId });
+      newRoom.publishedAt = Math.floor(Date.now() / 1000);
+      newRoom.meta = { likes: 0 };
+
+      const updates = {};
+      updates[`rooms/${roomId}`] = newRoom;
+      updates[`users/${newRoom.userId}/rooms/${roomId}`] = roomId;
+      firebase.database().ref().update(updates).then(() => {
+        commit('SET_ROOM', { newRoom, roomId });
+        commit('APPEND_ROOM_TO_USE', { roomId, userId: newRoom.userId });
+        return Promise.resolve(state.rooms[roomId]);
+      });
     },
     FETCH_ROOMS: ({ state, commit }, limit) => new Promise((resolve) => {
       let instance = firebase.database().ref('rooms');

@@ -56,7 +56,7 @@ export default {
       const room = {
         title,
         description,
-        featuredImage: featuredImage,
+        featured_image: featuredImage,
         publishedAt: Date.now(),
       }
       this.$store.dispatch('CREATE_ROOM', room);
