@@ -158,6 +158,11 @@ export default {
         name: "register",
         value: false
       });
+    },
+    registerHandlerSubmit() {
+      this.$store.dispatch("CREATE_USER", this.formRegister).then(() => {
+        this.closeModalRegister();
+      });
     }
   }
 };

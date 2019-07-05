@@ -10,7 +10,7 @@
         </div>
         <div class="flex items-center w-auto">
           <div class="items__controls">
-            <div class="flex" v-if="false">
+            <div class="flex" v-if="user">
               <button class="mr-2 flex items-center">
                 <i class="material-icons">add</i>
               </button>
