@@ -41,7 +41,7 @@
           <div class="form__field relative">
             <input
               v-model="formLogin.email"
-              class="inpremeberMeut__field"
+              class="input__field"
               type="text"
               placeholder="bruce.wayne@imnotbatman.org"
             />
@@ -129,6 +129,11 @@ export default {
         email: "",
         password: "",
         rememberMe: false
+      },
+      formRegister: {
+        email: "",
+        name: "",
+        password: ""
       }
     };
   },
@@ -149,12 +154,12 @@ export default {
       });
     },
     closeModalRegister() {
-        this.$store.dispatch("TOGGLE_MODAL_STATE", {
+      this.$store.dispatch("TOGGLE_MODAL_STATE", {
         name: "register",
         value: false
       });
-    },
-  },
+    }
+  }
 };
 </script>
 
