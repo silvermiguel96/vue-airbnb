@@ -18,7 +18,7 @@
                   id="where"
                   type="text"
                   placeholder="Mexico City, Mexico"
-                >
+                />
               </div>
             </div>
             <button
@@ -39,23 +39,75 @@
         <div class="mb-4">
           <label class="input__label">Email</label>
           <div class="form__field relative">
-            <input v-model="formLogin.email" class="inpremeberMeut__field" type="text" placeholder="bruce.wayne@imnotbatman.org">
+            <input
+              v-model="formLogin.email"
+              class="inpremeberMeut__field"
+              type="text"
+              placeholder="bruce.wayne@imnotbatman.org"
+            />
           </div>
         </div>
         <div class="mb-4">
           <label class="input__label">Password</label>
           <div class="form__field relative">
-            <input v-model="formLogin.password" class="input__field" type="password" placeholder="******">
+            <input
+              v-model="formLogin.password"
+              class="input__field"
+              type="password"
+              placeholder="******"
+            />
           </div>
         </div>
 
         <div class="mb-4">
-          <toggle-input v-model="formLogin.rememberMe"></toggle-input>
-          Remember Me
+          <toggle-input v-model="formLogin.rememberMe"></toggle-input>Remember Me
         </div>
 
         <div class="mb-4">
           <button class="btn btn-primary mr-3 w-full">Login</button>
+        </div>
+      </form>
+    </modal>
+    <modal :show="modals.register" @close-modal="closeModalRegister">
+      <form class="form" @submit.prevent="registerHandlerSubmit">
+        <div class="mb-4">
+          <label class="input__label" for="email">Email</label>
+          <div class="form__field relative">
+            <input
+              class="input__field"
+              id="email"
+              v-model="formRegister.email"
+              type="email"
+              placeholder="bruce.wayne@imnotbatman.org"
+            />
+          </div>
+        </div>
+        <div class="mb-4">
+          <label class="input__label" for="email">Name</label>
+          <div class="form__field relative">
+            <input
+              class="input__field"
+              id="name"
+              v-model="formRegister.name"
+              type="text"
+              placeholder="Bruce Wayne"
+            />
+          </div>
+        </div>
+        <div class="mb-4">
+          <label class="input__label" for="password">Password</label>
+          <div class="form__field relative">
+            <input
+              class="input__field"
+              id="password"
+              v-model="formRegister.password"
+              type="password"
+              placeholder="Create a Password"
+            />
+          </div>
+        </div>
+        <div class="mb-4">
+          <button class="btn w-full">Create account</button>
         </div>
       </form>
     </modal>
@@ -74,10 +126,10 @@ export default {
   data() {
     return {
       formLogin: {
-        email: '',
-        password: '',
-        rememberMe: false,
-      },
+        email: "",
+        password: "",
+        rememberMe: false
+      }
     };
   },
   computed: {
@@ -87,7 +139,7 @@ export default {
     HeaderPartial,
     FooterPartial,
     Modal,
-    ToggleInput,
+    ToggleInput
   },
   methods: {
     closeModal() {
@@ -95,8 +147,14 @@ export default {
         name: "login",
         value: false
       });
-    }
-  }
+    },
+    closeModalRegister() {
+        this.$store.dispatch("TOGGLE_MODAL_STATE", {
+        name: "register",
+        value: false
+      });
+    },
+  },
 };
 </script>
 
