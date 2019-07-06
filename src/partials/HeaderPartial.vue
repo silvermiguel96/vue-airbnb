@@ -28,6 +28,9 @@
                   <p class="text-grey-dark">Online</p>
                 </div>
               </div>
+              <button class="mr-4 flex items-center" @click.prevent="logOut">
+                <i class="material-icons">exit_to_app</i>
+              </button>
             </div>
             <div v-else>
               <button
@@ -67,6 +70,9 @@ export default {
         name: "register",
         value: true
       });
+    },
+    logOut() {
+      this.$store.dispatch("LOG_OUT");
     }
   },
   computed: {
