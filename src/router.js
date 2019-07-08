@@ -1,6 +1,6 @@
 import Vue from 'vue';
 import Router from 'vue-router';
-import store from './store'
+import store from './store';
 import HomePage from './views/HomePage.vue';
 import SearchPage from './views/SearchPage.vue';
 import NotFoundPage from './views/NotFoundPage.vue';
@@ -9,7 +9,7 @@ import CreateHousePage from './views/CreateHousePage.vue';
 // User Pages
 import ProfilePage from './views/user/ProfilePage.vue';
 import HousesPages from './views/user/HousesPage.vue';
-import { Store } from 'vuex';
+
 
 Vue.use(Router);
 
